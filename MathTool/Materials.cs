@@ -16,5 +16,23 @@ namespace MathTool
         {
             InitializeComponent();
         }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Login()).Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Home()).Show();
+        }
+
+        private void btnRevision_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Revision()).Show();
+        }
     }
 }

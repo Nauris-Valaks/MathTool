@@ -47,6 +47,7 @@
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnMaterials
             // 
@@ -56,15 +57,17 @@
             this.btnMaterials.TabIndex = 2;
             this.btnMaterials.Text = "Materials";
             this.btnMaterials.UseVisualStyleBackColor = true;
+            this.btnMaterials.Click += new System.EventHandler(this.btnMaterials_Click);
             // 
             // btnOut
             // 
-            this.btnOut.Location = new System.Drawing.Point(713, 12);
+            this.btnOut.Location = new System.Drawing.Point(797, 12);
             this.btnOut.Name = "btnOut";
             this.btnOut.Size = new System.Drawing.Size(75, 23);
             this.btnOut.TabIndex = 3;
             this.btnOut.Text = "Sign Out";
             this.btnOut.UseVisualStyleBackColor = true;
+            this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
             // 
             // btnOpt1
             // 
@@ -134,6 +137,7 @@
             this.Controls.Add(this.btnMaterials);
             this.Controls.Add(this.btnHome);
             this.Name = "Revision";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Revision";
             this.ResumeLayout(false);
             this.PerformLayout();

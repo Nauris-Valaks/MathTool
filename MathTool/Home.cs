@@ -22,5 +22,23 @@ namespace MathTool
         {
 
         }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Login()).Show();
+        }
+
+        private void btnMaterials_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Materials()).Show();
+        }
+
+        private void btnRevision_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Revision()).Show();
+        }
     }
 }
