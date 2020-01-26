@@ -40,6 +40,7 @@
             // 
             // txtStudent
             // 
+            this.txtStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtStudent.Location = new System.Drawing.Point(247, 74);
             this.txtStudent.Name = "txtStudent";
             this.txtStudent.Size = new System.Drawing.Size(100, 20);
@@ -47,6 +48,7 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogin.Location = new System.Drawing.Point(272, 139);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
@@ -57,6 +59,7 @@
             // 
             // txtPass
             // 
+            this.txtPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPass.Location = new System.Drawing.Point(247, 113);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
@@ -65,6 +68,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(244, 58);
             this.label3.Name = "label3";
@@ -74,6 +78,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(244, 97);
             this.label4.Name = "label4";
@@ -83,6 +88,7 @@
             // 
             // carousel1
             // 
+            this.carousel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.carousel1.HighlightColor = System.Drawing.Color.White;
             this.carousel1.ImageshadeColor = System.Drawing.Color.Black;
             this.carousel1.ImageSlides = false;
