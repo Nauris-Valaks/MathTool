@@ -13,7 +13,7 @@ namespace MathTool
 {
     public partial class Login : Form
     {
-        String cs = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nauri\\source\\repos\\MathTool\\users.mdf;Integrated Security=True;Connect Timeout=30";
+        String cs = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nauri\\source\\repos\\MathTool\\MathTool\\users.mdf;Integrated Security=True;Connect Timeout=30";
         public Login()
         {
             InitializeComponent();
