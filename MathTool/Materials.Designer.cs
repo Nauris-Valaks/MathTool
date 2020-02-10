@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings messageBoxSettings5 = new Syncfusion.Windows.Forms.PdfViewer.MessageBoxSettings();
-            Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings pdfViewerPrinterSettings5 = new Syncfusion.Windows.PdfViewer.PdfViewerPrinterSettings();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Materials));
-            Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings textSearchSettings5 = new Syncfusion.Windows.Forms.PdfViewer.TextSearchSettings();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnRevision = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.pdfMaterials = new Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView();
             this.materialList = new System.Windows.Forms.ComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.btnPdf = new System.Windows.Forms.Button();
+            this.pdfReader1 = new AxAcroPDFLib.AxAcroPDF();
+            this.video = new System.Windows.Forms.WebBrowser();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtLink = new System.Windows.Forms.TextBox();
+            this.btnPlay = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pdfReader1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnHome
@@ -73,50 +75,6 @@
             this.btnOut.Text = "Sign Out";
             this.btnOut.UseVisualStyleBackColor = true;
             this.btnOut.Click += new System.EventHandler(this.btnOut_Click);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(622, 79);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
-            this.webBrowser1.TabIndex = 3;
-            // 
-            // pdfMaterials
-            // 
-            this.pdfMaterials.AutoScroll = true;
-            this.pdfMaterials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(237)))), ((int)(((byte)(237)))));
-            this.pdfMaterials.CursorMode = Syncfusion.Windows.Forms.PdfViewer.PdfViewerCursorMode.SelectTool;
-            this.pdfMaterials.EnableContextMenu = true;
-            this.pdfMaterials.HorizontalScrollOffset = 0;
-            this.pdfMaterials.IsTextSearchEnabled = true;
-            this.pdfMaterials.IsTextSelectionEnabled = true;
-            this.pdfMaterials.Location = new System.Drawing.Point(230, 79);
-            messageBoxSettings5.EnableNotification = true;
-            this.pdfMaterials.MessageBoxSettings = messageBoxSettings5;
-            this.pdfMaterials.MinimumZoomPercentage = 50;
-            this.pdfMaterials.Name = "pdfMaterials";
-            this.pdfMaterials.PageBorderThickness = 1;
-            pdfViewerPrinterSettings5.PageOrientation = Syncfusion.Windows.PdfViewer.PdfViewerPrintOrientation.Auto;
-            pdfViewerPrinterSettings5.PageSize = Syncfusion.Windows.PdfViewer.PdfViewerPrintSize.ActualSize;
-            pdfViewerPrinterSettings5.PrintLocation = ((System.Drawing.PointF)(resources.GetObject("pdfViewerPrinterSettings5.PrintLocation")));
-            pdfViewerPrinterSettings5.ShowPrintStatusDialog = true;
-            this.pdfMaterials.PrinterSettings = pdfViewerPrinterSettings5;
-            this.pdfMaterials.ReferencePath = null;
-            this.pdfMaterials.ScrollDisplacementValue = 0;
-            this.pdfMaterials.ShowHorizontalScrollBar = true;
-            this.pdfMaterials.ShowVerticalScrollBar = true;
-            this.pdfMaterials.Size = new System.Drawing.Size(386, 250);
-            this.pdfMaterials.SpaceBetweenPages = 8;
-            this.pdfMaterials.TabIndex = 4;
-            textSearchSettings5.CurrentInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(64)))));
-            textSearchSettings5.HighlightAllInstance = true;
-            textSearchSettings5.OtherInstanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
-            this.pdfMaterials.TextSearchSettings = textSearchSettings5;
-            this.pdfMaterials.ThemeName = "Default";
-            this.pdfMaterials.VerticalScrollOffset = 0;
-            this.pdfMaterials.VisualStyle = Syncfusion.Windows.Forms.PdfViewer.VisualStyle.Default;
-            this.pdfMaterials.ZoomMode = Syncfusion.Windows.Forms.PdfViewer.ZoomMode.Default;
             // 
             // materialList
             // 
@@ -175,24 +133,82 @@
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "linkLabel4";
             // 
+            // btnPdf
+            // 
+            this.btnPdf.Location = new System.Drawing.Point(174, 426);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.Size = new System.Drawing.Size(75, 23);
+            this.btnPdf.TabIndex = 105;
+            this.btnPdf.Text = "button1";
+            this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            // 
+            // pdfReader1
+            // 
+            this.pdfReader1.Enabled = true;
+            this.pdfReader1.Location = new System.Drawing.Point(174, 41);
+            this.pdfReader1.Name = "pdfReader1";
+            this.pdfReader1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("pdfReader1.OcxState")));
+            this.pdfReader1.Size = new System.Drawing.Size(409, 379);
+            this.pdfReader1.TabIndex = 106;
+            // 
+            // video
+            // 
+            this.video.Location = new System.Drawing.Point(589, 101);
+            this.video.MinimumSize = new System.Drawing.Size(20, 20);
+            this.video.Name = "video";
+            this.video.Size = new System.Drawing.Size(283, 274);
+            this.video.TabIndex = 107;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(589, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 108;
+            this.label1.Text = "Enter Youtube link";
+            // 
+            // txtLink
+            // 
+            this.txtLink.Location = new System.Drawing.Point(589, 57);
+            this.txtLink.Name = "txtLink";
+            this.txtLink.Size = new System.Drawing.Size(100, 20);
+            this.txtLink.TabIndex = 109;
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Location = new System.Drawing.Point(742, 57);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnPlay.TabIndex = 110;
+            this.btnPlay.Text = "Play";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
             // Materials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.txtLink);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.video);
+            this.Controls.Add(this.pdfReader1);
+            this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.materialList);
-            this.Controls.Add(this.pdfMaterials);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btnOut);
             this.Controls.Add(this.btnRevision);
             this.Controls.Add(this.btnHome);
             this.Name = "Materials";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Materials";
+            ((System.ComponentModel.ISupportInitialize)(this.pdfReader1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,12 +219,16 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnRevision;
         private System.Windows.Forms.Button btnOut;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-        private Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView pdfMaterials;
         private System.Windows.Forms.ComboBox materialList;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Button btnPdf;
+        private AxAcroPDFLib.AxAcroPDF pdfReader1;
+        private System.Windows.Forms.WebBrowser video;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtLink;
+        private System.Windows.Forms.Button btnPlay;
     }
 }
