@@ -46,37 +46,76 @@ namespace MathTool
 
                 SqlCommand myCommand = default(SqlCommand);
 
-                myCommand = new SqlCommand("SELECT StudentNumber, Password FROM Users WHERE StudentNumber = @StudentNumber AND Password = @Password", myConnection);
+                myCommand = new SqlCommand("SELECT StudentNumber, Password, role FROM Users WHERE StudentNumber = @StudentNumber AND Password = @Password AND role = @role", myConnection);
 
                 SqlParameter sNumber = new SqlParameter("@StudentNumber", SqlDbType.NVarChar);
                 SqlParameter sPass = new SqlParameter("@Password", SqlDbType.NVarChar);
+                SqlParameter role = new SqlParameter("@role", SqlDbType.NVarChar);
 
-                sNumber.Value =txtStudent.Text;
-                sPass.Value = txtPass.Text;
+                SqlDataAdapter da = new SqlDataAdapter("select role from Users where StudentNumber='" + txtStudent.Text + "' and Password='" + txtPass.Text + "'", myConnection);
 
-                myCommand.Parameters.Add(sNumber);
-                myCommand.Parameters.Add(sPass);
 
-                myCommand.Connection.Open();
+                //sNumber.Value = txtStudent.Text;
+                //sPass.Value = txtPass.Text;
+                //role.Value = "@role";
 
-                SqlDataReader myReader = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                //myCommand.Parameters.Add(sNumber);
+                //myCommand.Parameters.Add(sPass);
+                //myCommand.Parameters.Add(role);
 
-                if(myReader.Read() == true)
+
+                //myCommand.Connection.Open();
+
+                //SqlDataReader myReader = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count == 1)
                 {
-                    MessageBox.Show("You have logged in successfully " + txtStudent.Text);
-                    this.Visible = false;
-                    (new Home()).Show();
-                }
-                else
-                {
-                    MessageBox.Show("Login Failed, Try again !"," Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPass.Clear();
-                    txtPass.Focus();
-                }
-                if (myConnection.State == ConnectionState.Open)
-                {
-                    myConnection.Dispose();
+                    switch (dt.Rows[0]["role"] as string)
+                    {
+                        case "admin":
+                            {
+                                this.Hide();
+                                new Materials().Show();
+                                break;
+                            }
+                        case "student":
+                            {
+                                this.Hide();
+                                new Revision().Show();
+                                MessageBox.Show("You are User and only view the things");
+                                break;
+                            }
+                        case "lecturer":
+                            {
+                                this.Hide();
+                                new Revision().Show();
+                                break;
+                            }
+                        default:
+                            {
+                                MessageBox.Show("Enter Correct Username and Password");
+                                break;
+                            }
+                    }
+                    //if(myReader.Read() == true)
+                    //{
+                    //    MessageBox.Show("You have logged in successfully " + txtStudent.Text);
+                    //    this.Visible = false;
+                    //    (new Home()).Show();
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Login Failed, Try again !"," Login Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    txtPass.Clear();
+                    //    txtPass.Focus();
+                    //}
+                    if (myConnection.State == ConnectionState.Open)
+                    {
+                        myConnection.Dispose();
 
+                    }
                 }
             }
             catch (Exception ex)
