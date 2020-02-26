@@ -13,7 +13,7 @@ namespace MathTool
 {
     public partial class Login : Form
     {
-        String cs = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nauri\\source\\repos\\MathTool\\MathTool\\users.mdf;Integrated Security=True;Connect Timeout=30";
+        String cs = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nauri\\source\\repos\\MathTool\\MathTool\\user.mdf;Integrated Security=True;Connect Timeout=30";
         public Login()
         {
             InitializeComponent();
@@ -46,13 +46,13 @@ namespace MathTool
 
                 SqlCommand myCommand = default(SqlCommand);
 
-                myCommand = new SqlCommand("SELECT StudentNumber, Password, role FROM Users WHERE StudentNumber = @StudentNumber AND Password = @Password AND role = @role", myConnection);
+                myCommand = new SqlCommand("SELECT StudentNumber, Password, role FROM [user] WHERE StudentNumber = @StudentNumber AND Password = @Password AND role = @role", myConnection);
 
                 SqlParameter sNumber = new SqlParameter("@StudentNumber", SqlDbType.NVarChar);
                 SqlParameter sPass = new SqlParameter("@Password", SqlDbType.NVarChar);
                 SqlParameter role = new SqlParameter("@role", SqlDbType.NVarChar);
 
-                SqlDataAdapter da = new SqlDataAdapter("select role from Users where StudentNumber='" + txtStudent.Text + "' and Password='" + txtPass.Text + "'", myConnection);
+                SqlDataAdapter da = new SqlDataAdapter("select role from [user] where StudentNumber='" + txtStudent.Text + "' and Password='" + txtPass.Text + "'", myConnection);
 
 
                 //sNumber.Value = txtStudent.Text;
@@ -74,23 +74,23 @@ namespace MathTool
                 {
                     switch (dt.Rows[0]["role"] as string)
                     {
-                        case "admin":
+                        case "Admin":
                             {
                                 this.Hide();
-                                new Materials().Show();
+                                new admin().Show();
                                 break;
                             }
-                        case "student":
+                        case "Student":
                             {
                                 this.Hide();
                                 new Revision().Show();
                                 MessageBox.Show("You are User and only view the things");
                                 break;
                             }
-                        case "lecturer":
+                        case "Lecturer":
                             {
                                 this.Hide();
-                                new Revision().Show();
+                                new lecturer().Show();
                                 break;
                             }
                         default:
