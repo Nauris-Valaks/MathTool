@@ -271,6 +271,7 @@
             this.Name = "Revision";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Revision";
+            this.Load += new System.EventHandler(this.Revision_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -395,5 +395,10 @@ namespace MathTool
             this.Visible = false;
             (new Revision()).Show();
         }
+
+        private void Revision_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
