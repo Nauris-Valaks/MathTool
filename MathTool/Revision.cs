@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.Data.SqlClient;
 
 namespace MathTool
 {
@@ -43,6 +44,7 @@ namespace MathTool
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
             btnOut.Visible = false;
             btnHome.Visible = false;
             btnMaterials.Visible = false;
@@ -62,7 +64,8 @@ namespace MathTool
             ans3.Visible = Visible;
             ans4.Visible = Visible;
             questLbl.Visible = Visible;
-            //
+
+
             int i = this.getRandom();
             questLbl.Text = q.getQuestion(i);
             //
@@ -169,7 +172,7 @@ namespace MathTool
 
         private void ans2_Click(object sender, EventArgs e)
         {
-            if(this.number < 5)
+            if (this.number < 5)
             {
                 this.number++;
                 if (Convert.ToString(ans2.Text) == this.ans)
@@ -276,7 +279,7 @@ namespace MathTool
                 ans3.Visible = false;
                 ans4.Visible = false;
                 finalLbl.Visible = Visible;
-                finalLbl.Text = "Your score is " + this.score + "/" +number ;
+                finalLbl.Text = "Your score is " + this.score + "/" + number;
                 btnRestart.Visible = Visible;
             }
         }
@@ -340,11 +343,12 @@ namespace MathTool
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
-        {
+        {        
+
             this.score = 0;
             scoreLbl.Text = "Score : " + this.score;
             this.number = 1;
-            finalLbl.Visible= false;
+            finalLbl.Visible = false;
             lst.Clear();
             btnRestart.Visible = false;
             questLbl.Visible = Visible;
@@ -353,6 +357,8 @@ namespace MathTool
             ans3.Visible = Visible;
             ans4.Visible = Visible;
             scoreLbl.Visible = Visible;
+
+
             //
             int i = this.getRandom();
             questLbl.Text = q.getQuestion(i);
@@ -386,8 +392,10 @@ namespace MathTool
                         ans4.Text = Convert.ToString(ans4.Text).Substring(1, Convert.ToString(ans4.Text).Length - 1);
                     }
                 }
+
+                lst.Add(i);
+
             }
-            lst.Add(i);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -396,9 +404,10 @@ namespace MathTool
             (new Revision()).Show();
         }
 
-        private void Revision_Load(object sender, EventArgs e)
+        private void btnOut_Click_1(object sender, EventArgs e)
         {
-
+            this.Visible = false;
+            (new Login()).Show();
         }
     }
 }

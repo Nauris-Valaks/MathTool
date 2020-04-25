@@ -52,14 +52,10 @@ namespace MathTool
             }
         }
 
-        private void btnPlay_Click(object sender, EventArgs e)
+        private void btnOut_Click_1(object sender, EventArgs e)
         {
-            string html = "<html><head>";
-            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}' width='600' height='300' frameborder='0' allowfullscreen></iframe>";
-            html += "</body></html>";
-            this.video.DocumentText = string.Format(html, txtLink.Text.Split('=')[1]);
-
+            this.Visible = false;
+            (new Login()).Show();
         }
     }
 }

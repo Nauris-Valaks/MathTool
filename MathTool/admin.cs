@@ -57,7 +57,24 @@ namespace MathTool
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            if (txtNumber.Text == "")
+            {
+                MessageBox.Show("Enter Student Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNumber.Focus();
+                return;
+            }
+            if (txtPass.Text == "")
+            {
+                MessageBox.Show("Enter Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPass.Focus();
+                return;
+            }
+            if (boxRole.Text == "")
+            {
+                MessageBox.Show("Select Role", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                boxRole.Focus();
+                return;
+            }
             string connectionString = null;
             string sql = null;
 
@@ -128,6 +145,22 @@ namespace MathTool
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            (new Login()).Show();
         }
     }
 

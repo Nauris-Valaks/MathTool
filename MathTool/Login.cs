@@ -35,7 +35,7 @@ namespace MathTool
             }
             if (txtPass.Text == "")
             {
-                MessageBox.Show("Enter Student Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Enter Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPass.Focus();
                 return;
             }
@@ -83,8 +83,7 @@ namespace MathTool
                         case "Student":
                             {
                                 this.Hide();
-                                new Revision().Show();
-                                MessageBox.Show("You are User and only view the things");
+                                new Home().Show();
                                 break;
                             }
                         case "Lecturer":

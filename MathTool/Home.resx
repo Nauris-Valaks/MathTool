@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="txtInfo.Text" xml:space="preserve">
+    <value>Welcome to math tutorial tool.
+From here you are able to go to Materials page and Revision page
+
+Materials holds information on what to revise and where
+to find relevant infromation
+
+Revison page will hold a quiz in which you can test what
+you have learned from materials.
+</value>
+  </data>
 </root>

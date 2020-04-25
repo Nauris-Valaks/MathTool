@@ -21,7 +21,6 @@ namespace MathTool
 
         private void lecturer_Load(object sender, EventArgs e)
         {
-            richQuestion.SelectedRtf = Properties.Resources.equation;
             var select = "SELECT * FROM [quiz]";
             var c = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nauri\\source\\repos\\MathTool\\MathTool\\user.mdf;Integrated Security=True;Connect Timeout=30"); // Your Connection String here
             var dataAdapter = new SqlDataAdapter(select, c);
@@ -46,7 +45,36 @@ namespace MathTool
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            if (txtAnswer1.Text == "")
+            {
+                MessageBox.Show("Enter Answer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAnswer1.Focus();
+                return;
+            }
+            if (richQuestion.Text == "")
+            {
+                MessageBox.Show("Enter Question", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                richQuestion.Focus();
+                return;
+            }
+            if (txtAnswer2.Text == "")
+            {
+                MessageBox.Show("Enter Answer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAnswer2.Focus();
+                return;
+            }
+            if (txtAnswer3.Text == "")
+            {
+                MessageBox.Show("Enter Answer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAnswer3.Focus();
+                return;
+            }
+            if (txtAnswer4.Text == "")
+            {
+                MessageBox.Show("Enter Answer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAnswer4.Focus();
+                return;
+            }
             string connectionString = null;
             string sql = null;
 
@@ -54,7 +82,7 @@ namespace MathTool
             connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\nauri\\source\\repos\\MathTool\\MathTool\\user.mdf;Integrated Security=True;Connect Timeout=30";
 
             // Prepare a proper parameterized query 
-            sql = "insert into [quiz] ([Question], [Answer1], [Answer2], [Answer3], [Answer4], [Correct]) values(@Question,@Answer1,@Answer2,@Answer3,@Answer4,@Correct)";
+            sql = "insert into [quiz] ([Question], [Answer1], [Answer2], [Answer3], [Answer4]) values(@Question,@Answer1,@Answer2,@Answer3,@Answer4)";
 
 
 
@@ -78,7 +106,6 @@ namespace MathTool
                         cmd.Parameters.Add("@Answer2", SqlDbType.NVarChar).Value = txtAnswer2.Text;
                         cmd.Parameters.Add("@Answer3", SqlDbType.NVarChar).Value = txtAnswer3.Text;
                         cmd.Parameters.Add("@Answer4", SqlDbType.NVarChar).Value = txtAnswer4.Text;
-                        cmd.Parameters.Add("@Correct", SqlDbType.Bit).Value=checkBox1.Checked;
                         // cmd.Parameters.Add("@role", SqlDbType.NVarChar).Value = boxRole.Text;
 
                         // Let's ask the db to execute the query
@@ -115,6 +142,57 @@ namespace MathTool
                     MessageBox.Show("ERROR:" + ex.Message);
                 }
             }
+
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbKeyNo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbAllocated_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+                this.Visible = false;
+                (new Login()).Show();         
+        }
+
+        private void richQuestion_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
